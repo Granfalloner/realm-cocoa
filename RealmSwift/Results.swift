@@ -167,6 +167,10 @@ public final class Results<Element: RealmCollectionValue>: NSObject, NSFastEnume
     /// Returns the last object in the results, or `nil` if the results are empty.
     public var last: Element? { return rlmResults.lastObject().map(dynamicBridgeCast) }
 
+    public func upcast<T: Object>() -> Results<T> {
+        return Results<T>(rlmResults)
+    }
+
     // MARK: KVC
 
     /**
